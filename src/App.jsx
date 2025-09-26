@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GameBoard from "./components/GameBoard";
 import GameOver from "./components/GameOver";
 import Log from "./components/Log";
@@ -32,9 +32,6 @@ function deriveGameBoard(gameTurns) {
 	for (const turn of gameTurns) {
 		const { square, player } = turn;
 		const { row, col } = square;
-		// const player = turn?.player;
-		// const row = turn?.square?.row;
-		// const col = turn?.sqaure?.col;
 
 		gameBoard[row][col] = player;
 	}
@@ -74,15 +71,6 @@ function App() {
 	const gameBoard = deriveGameBoard(gameTurns);
 	const winner = deriveWinner(gameBoard, players);
 	const hasDraw = gameTurns.length === maximumGameTurns && !winner;
-
-	// let gameBoard = [...INITIAL_GAME_BOARD.map((array) => [...array])];
-
-	// for (const turn of gameTurns) {
-	//   const { square, player } = turn;
-	//   const { row, col } = square;
-
-	//   gameBoard[row][col] = player;
-	// }
 
 	function handleSelectSquare(rowIndex, colIndex) {
 		setGameTurns((prevTurns) => {
