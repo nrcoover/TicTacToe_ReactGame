@@ -128,7 +128,7 @@ function App() {
 					/>
 				</ol>
 				{(winner || hasDraw) && (
-					<GameOver winner={winner} onRematch={handleRestart} />
+					<GameOver winner={winner} onRestart={handleRestart} />
 				)}
 				<GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
 			</div>
