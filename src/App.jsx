@@ -89,7 +89,7 @@ function App() {
 			const currentPlayer = deriveActivePlayer(prevTurns);
 
 			const updatedTurns = [
-				{ sqaure: { row: rowIndex, col: colIndex }, player: currentPlayer },
+				{ square: { row: rowIndex, col: colIndex }, player: currentPlayer },
 				...prevTurns,
 			];
 
@@ -128,7 +128,7 @@ function App() {
 					/>
 				</ol>
 				{(winner || hasDraw) && (
-					<GameOver winner={winner} onRematch={handleRestart} />
+					<GameOver winner={winner} onRestart={handleRestart} />
 				)}
 				<GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
 			</div>

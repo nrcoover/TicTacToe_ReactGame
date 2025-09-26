@@ -1,23 +1,12 @@
-export default function GameBoard({ onSelectSquare, board }) {
+export default function GameOver({ winner, onRestart }) {
 	return (
-		<ol id="game-board">
-			{board.map((row, rowIndex) => (
-				<li key={rowIndex}>
-					<ol>
-						{row.map((playerSymbol, colIndex) => (
-							<li key={colIndex}>
-								<button
-									onClick={() => onSelectSquare(rowIndex, colIndex)}
-									// disabled={gameBoard[rowIndex][colIndex] === playerSymbol}
-									disabled={playerSymbol !== null}
-								>
-									{playerSymbol}
-								</button>
-							</li>
-						))}
-					</ol>
-				</li>
-			))}
-		</ol>
+		<div id="game-over">
+			<h2>Game Over!</h2>
+			{winner && <p>{winner} won!</p>}
+			{!winner && <p>It&apos;s a draw!</p>}
+			<p>
+				<button onClick={onRestart}>Rematch!</button>
+			</p>
+		</div>
 	);
 }
